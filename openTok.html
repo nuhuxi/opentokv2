@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Empty Box</title>
+	<link type="text/css" rel="stylesheet" href="display-test.css"/>
+    <script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js" ></script>
+
+</head>
+<body>
+
+
+</body>
+<script type="text/javascript">
+  var apiKey    = "44950832";
+  var sessionId = "1_MX40NDk1MDgzMn5-VHVlIEF1ZyAxOSAxMTowODo1MyBQRFQgMjAxNH4wLjI4MTAyNTd-fg";
+  var token     = "a136884db142649bf0c16bac32b0609edb159e05";
+ 
+  var session = OT.initSession(apiKey, sessionId);
+ 
+  session.on("streamCreated", function(event) {
+    session.subscribe(event.stream);
+  });
+ 
+  session.connect(token, function(error) {
+    var publisher = OT.initPublisher();
+    session.publish(publisher);
+  });
+</script>
+</html>
